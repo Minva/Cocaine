@@ -46,6 +46,27 @@ end
 
 cocaine_generate_endpoint [
   {
+    "cors" => true
+    "methods" => {
+      "GET" => controller_index,
+    },
+    "name" => "index",
+    "path" => "/"
+  },
+  {
+    "methods" => {
+      "GET" => controller_user_get
+      "POST" => controller_user_post
+      "DELETE" => controller_user_delete,
+      "PATCH" => fun_patch,
+      "PUT" => fun_put
+    },
+    "name" => "user_id", # Name for the struct exemple PosTest
+    "path" => "/user/:id/:oo" # /user & /user/ it's exactly
+
+
+
+
     "path" => "/",
     "verb" => "GET",
     "callback" => controller_index
@@ -56,6 +77,19 @@ cocaine_generate_endpoint [
     "callback" => controller_user
   }
 ]
+
+"cors" => true,
+    "methods" => {
+      "GET" => fun_get,
+      "POST" => fun_post,
+      "DELETE" => fun_delete,
+      "PATCH" => fun_patch,
+      "PUT" => fun_put
+    },
+    "name" => "Test", # Name for the struct exemple PosTest
+    "path" => "/user/:id/:oo" # /user & /user/ it's exactly the same
+
+
 
 ################################################################################
 # Server
